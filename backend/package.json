@@ -1,0 +1,18 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend of the digital phonebook",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "build": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/src/app.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
