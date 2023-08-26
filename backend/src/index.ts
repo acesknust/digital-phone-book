@@ -1,8 +1,8 @@
 import express, { Request, Response } from "express";
-import cors from "cors"
-import bodyParser from "body-parser";
-import path from "path";
-require("dotenv").config()
+import cors from 'cors'
+import bodyParser from 'body-parser';
+import path from 'path';
+require('dotenv').config()
 
 const app = express()
 app.use(cors())
@@ -16,7 +16,7 @@ app.get("/", (req: Request, res: Response) => {
     })
 })
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
     console.log(`---- App is listening on port ${PORT}`)
