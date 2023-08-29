@@ -4,7 +4,7 @@
   "description": "backend of the digital phonebook",
   "main": "src/index.ts",
   "scripts": {
-    "start": "ts-node src/app.ts",
+    "start": "ts-node src/index.ts",
     "build": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "typeorm": "typeorm-ts-node-commonjs",
@@ -20,8 +20,13 @@
   },
   "dependencies": {
     "@types/body-parser": "^1.19.2",
+    "concurrently": "^8.2.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "path": "^0.12.7"
+    "mongodb": "^5.8.1",
+    "nodemon": "^3.0.1",
+    "path": "^0.12.7",
+    "typeorm": "^0.3.17"
   }
 }

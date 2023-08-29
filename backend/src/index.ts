@@ -2,7 +2,17 @@ import express, { Request, Response } from "express";
 import cors from 'cors'
 import bodyParser from 'body-parser';
 import path from 'path';
+import { dataSource } from './dataSource'
 require('dotenv').config()
+
+dataSource
+    .initialize()
+    .then(() => {
+        console.log("Data Source initialized.")
+    }).catch((error) => {
+        console.error("Error during Data Source initialization:\n", error)
+})
+
 
 const app = express()
 app.use(cors())
