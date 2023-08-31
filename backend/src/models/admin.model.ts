@@ -1,9 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToOne, CreateDateColumn } from 'typeorm';
+import { Entity, Column, ObjectIdColumn, ObjectId, CreateDateColumn } from 'typeorm';
 
 @Entity()
 export class Admin {
-    @PrimaryGeneratedColumn("uuid")
-    id!: string
+    @ObjectIdColumn()
+    id!: ObjectId
 
     @Column({ type: "text" })
     username!: string
