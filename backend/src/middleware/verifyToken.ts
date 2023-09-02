@@ -1,14 +1,20 @@
 import { Response, Request,NextFunction } from "express";
 import {  SECRET } from "../utils/constants";
 import jwt from 'jsonwebtoken'
+import { ObjectId } from "typeorm";
 
 declare global {
     namespace Express {
         interface Request {
         id?: string; 
+        studentId?: ObjectId ;
     }
     }
 }
+
+// interface OId {
+//     $oid: string;
+// }
 
 export const verifyJWTToken = (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers["x-access-token"] as string

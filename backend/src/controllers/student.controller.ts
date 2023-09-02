@@ -44,3 +44,10 @@ export const getAllStudentDataInYear = async (req: Request, res: Response) => {
         return res.status(500).send(error);
     }
 }
+
+export const updateStudentDataHavingTheReferenceNumber = async (req: Request, res: Response) => {
+    try{
+
+    }catch(error){}
+
+}
