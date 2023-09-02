@@ -5,5 +5,6 @@ import { verifyJWTToken } from "../middleware/verifyToken";
 const router = Router()
 
 router.post('/student',verifyJWTToken, controller.createStudent)
+router.get('/student',controller.getAllStudentData)
 
 export default router
