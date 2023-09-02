@@ -6,5 +6,6 @@ const router = Router()
 
 router.post('/student',verifyJWTToken, controller.createStudent)
 router.get('/student',controller.getAllStudentData)
+router.get('/student/:year',controller.getAllStudentDataInYear)
 
 export default router

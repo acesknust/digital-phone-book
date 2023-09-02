@@ -32,3 +32,15 @@ export const getAllStudentData = async (req: Request, res: Response) => {
         return res.status(500).send(error);
     }
 }
+
+
+export const getAllStudentDataInYear = async (req: Request, res: Response) => {
+    try{
+        const student = await dataSource.getRepository(Student).find({where: {year: req.params.year}})
+        if(!student) return res.status(404).send('No student found')
+        return res.status(200).send(student)
+    }catch(error){
+        // console.log(error)
+        return res.status(500).send(error);
+    }
+}
