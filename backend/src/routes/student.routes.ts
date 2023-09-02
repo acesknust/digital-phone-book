@@ -9,5 +9,8 @@ router.post('/student',verifyJWTToken, controller.createStudent)
 router.get('/student',controller.getAllStudentData)
 router.get('/student/:year',controller.getAllStudentDataInYear)
 router.patch('/student/:referenceNumber',verifyStudentReferenceNumber,controller.updateStudentDataHavingTheReferenceNumber)
+// router.post('/students/:year',verifyJWTToken,controller.uplooadListOfStudentReferenceNumbersWithCorrespondingYear)
+router.post('/students/:year',controller.uplooadListOfStudentReferenceNumbersWithCorrespondingYear)
+// router.post('/students',controller.uplooadListOfStudentReferenceNumbersWithCorrespondingYear)
 
 export default router
