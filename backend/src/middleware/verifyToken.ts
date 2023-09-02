@@ -7,14 +7,11 @@ declare global {
     namespace Express {
         interface Request {
         id?: string; 
-        studentId?: ObjectId ;
+        // studentId?: ObjectId ;
     }
     }
 }
 
-// interface OId {
-//     $oid: string;
-// }
 
 export const verifyJWTToken = (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers["x-access-token"] as string

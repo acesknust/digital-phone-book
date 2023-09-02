@@ -47,7 +47,30 @@ export const getAllStudentDataInYear = async (req: Request, res: Response) => {
 
 export const updateStudentDataHavingTheReferenceNumber = async (req: Request, res: Response) => {
     try{
+        const student = await dataSource.getRepository(Student).update({referenceNumber:req.params.referenceNumber},
+            {
+                name: req.body.name,
+                nickname:req.body.nickname,
+                image:req.body.image,
+                quote:req.body.quote
+            }
+        )
 
-    }catch(error){}
+
+        if (student.affected === 0) {
+            return res.status(400).send('Unable to process request');
+        }
+    
+        
+        const updatedStudent = await dataSource.getRepository(Student).findOne({ where:{referenceNumber:req.params.referenceNumber}})
+    
+
+        return res.status(201).send({
+            msg: 'Details taken successfully!'
+        });
+
+    }catch(error){
+        return res.status(500).send(error);
+    }
 
 }

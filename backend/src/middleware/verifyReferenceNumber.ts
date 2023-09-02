@@ -4,7 +4,7 @@ import { Student } from "../models/student.model";
 
 
 export const verifyStudentReferenceNumber = async (req: Request, res: Response, next: NextFunction) => {
-    const referenceNumber = req.body.referenceNumber
+    const referenceNumber = req.params.referenceNumber
 
     if (!referenceNumber) {
         return res.status(403).send({
@@ -25,7 +25,7 @@ export const verifyStudentReferenceNumber = async (req: Request, res: Response, 
         })
     }
 
-    req.studentId = foundReferenceNumber.id
+    // req.studentId = foundReferenceNumber.id
 
     next()
 
