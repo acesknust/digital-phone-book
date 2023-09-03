@@ -11,7 +11,7 @@ declare global {
     }
     }
 }
-
+//TODO: think about checking if the user exists in the database first, in casae someone grabs the token and then tries to replicate it
 
 export const verifyJWTToken = (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers["x-access-token"] as string
@@ -24,11 +24,21 @@ export const verifyJWTToken = (req: Request, res: Response, next: NextFunction) 
 
     jwt.verify(token, SECRET, (err: any, decoded: any) => {
         if (err) {
-            return res.status(401).send({
-                message: "Unauthorized!"
-            })
+            if (err.name === 'TokenExpiredError') {
+                return res.status(401).send({
+                    message: "Token expired!"
+                });
+            } else if (err.name === 'JsonWebTokenError') {
+                return res.status(401).send({
+                    message: "Invalid token!"
+                });
+            } else {
+                return res.status(401).send({
+                    message: "Unauthorized!"
+                });
+            }
         }
-        req.id = decoded.id
-        next()
-    })
+        req.id = decoded.id;
+        next();
+    });
 }
