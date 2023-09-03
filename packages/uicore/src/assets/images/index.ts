@@ -1,4 +1,4 @@
-export * from './PhonesIcon';
+export * from "./PhonesIcon";
 export * from "./CarIcon";
 export * from "./LargeArrowDownIcon";
 export * from "./ShoesIcon";

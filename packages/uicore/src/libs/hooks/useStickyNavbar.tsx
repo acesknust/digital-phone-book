@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from "react"
 
 export const useStickyNavbar = (viewOverlay?: boolean) => {
 
@@ -7,7 +7,7 @@ export const useStickyNavbar = (viewOverlay?: boolean) => {
 
   // Show BottomNav on scroll
   const BottomNavScroll = useCallback(() => {
-    let currentScrollPos = window.pageYOffset;
+    const currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
       setshowani(true);
     } else {
