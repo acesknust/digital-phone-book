@@ -18,7 +18,8 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"lint": "eslint \"src/**/*.ts*\""
+		"lint": "eslint \"src/**/*.ts*\"",
+    "typecheck": "tsc"
 	},
 	"devDependencies": {
 		"@vitejs/plugin-react-swc": "^3.0.0",

@@ -18,7 +18,7 @@
 		"dp-ad": "yarn uc:build && yarn ad:build",
 		"dp-st": "yarn uc:build && yarn st:build",
 		"dp-sb": "yarn uc:build && yarn sb:build ",
-
+    "typecheck": "yarn workspaces --verbose run typecheck",
 		"lint": "eslint --ext .js,.ts,.tsx . --fix"
 
 	},
