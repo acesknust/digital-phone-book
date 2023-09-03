@@ -6,22 +6,14 @@
 			"./src/entry/shared.ts",
 			"./src/entry/*"
 		],
-		"./uisite": [
-			"./src/entry/site.ts",
+		"./client": [
+			"./src/entry/client.ts",
 			"./src/entry/*"
 		],
-		"./uikiosk": [
-			"./src/entry/kiosk.ts",
+		"./admin": [
+			"./src/entry/admin.ts",
 			"./src/entry/*"
-		],
-		"./uikioskadmin": [
-			"./src/entry/kioskadmin.ts",
-			"./src/entry/*"
-		],
-		"./uisuperadmin": [
-			"./src/entry/superadmin.ts",
-			"./src/entry/*"
-		]
+    ]
 	},
 	"version": "0.0.0",
 	"type": "module",

@@ -19,7 +19,12 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "uicore": ["../../packages/uicore/src/entry/shared.ts"],
+			"uicss": ["../../packages/uicore/src/entry/shared"],
+      
+			"uiclient": ["../../packages/uicore/src/entry/client.ts"],
+      "clientcss": ["../../packages/uicore/src/entry/client"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
