@@ -1,0 +1,13 @@
+{
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "singleQuote": false,
+  "printWidth": 110,
+  "useTabs": false,
+  "importOrderSortIndividualImports": true,
+  "importOrderTypeImportsToTop": false,
+  "importOrderNamespaceImportsToGroupTop": true,
+  "importOrderBuiltinModulesToTop": true,
+  "importOrderMergeDuplicateImports": true,
+  "importOrderParserPlugins": ["typescript", "decorators-legacy"]
+}
