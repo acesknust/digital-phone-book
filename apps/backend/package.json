@@ -4,11 +4,12 @@
   "description": "backend of the digital phonebook",
   "main": "src/index.ts",
   "scripts": {
-    "start": "node ./dist/src/index",
+    "start": "node src/index",
     "build": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "typeorm": "typeorm-ts-node-commonjs",
-    "dev": "nodemon  -e ts,json, ./src/index.ts"
+    "dev": "nodemon  -e ts,json, ./src/index.ts",
+    "typecheck": "tsc"
   },
   "author": "",
   "license": "ISC",

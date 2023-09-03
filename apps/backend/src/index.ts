@@ -5,6 +5,7 @@ import path from 'path';
 require('dotenv').config()
 import { dataSource } from './dataSource'
 import authRoutes from "./routes/auth.routes"
+import studentRoutes from "./routes/student.routes";
 
 
 dataSource
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static(path.resolve(__dirname, 'src/public')))
 
 app.use(authRoutes)
+app.use(studentRoutes)
 
 app.get("/", (req: Request, res: Response) => {
     res.send({
