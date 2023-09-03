@@ -1,5 +1,5 @@
-import { DataSource } from "typeorm"
-import path from "path"
+import { DataSource } from "typeorm";
+import path from "path";
 
 export const dataSource = new DataSource({
   type: "mongodb",
@@ -15,4 +15,4 @@ export const dataSource = new DataSource({
   entities: [path.join(__dirname, "models", "*.{ts,js}")],
   port: Number(process.env.DB_PORT),
   database: "digital-phonebook",
-})
+});

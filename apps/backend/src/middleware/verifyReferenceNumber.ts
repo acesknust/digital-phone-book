@@ -1,15 +1,14 @@
-import { Response, Request,NextFunction } from "express";
+import { Response, Request, NextFunction } from "express";
 import { dataSource } from "../dataSource";
 import { Student } from "../models/student.model";
 
-
 export const verifyStudentReferenceNumber = async (req: Request, res: Response, next: NextFunction) => {
-  const referenceNumber = req.params.referenceNumber
+  const referenceNumber = req.params.referenceNumber;
 
   if (!referenceNumber) {
     return res.status(403).send({
-      msg: "No reference number provided"
-    })
+      msg: "No reference number provided",
+    });
   }
 
   // if(referenceNumber.length !== 8){
@@ -17,17 +16,17 @@ export const verifyStudentReferenceNumber = async (req: Request, res: Response, 
   //         message: "Invalid reference number"
   //     })
   // }
-  const foundReferenceNumber  = await dataSource.getRepository(Student).findOne({where:{referenceNumber: referenceNumber}});
+  const foundReferenceNumber = await dataSource
+    .getRepository(Student)
+    .findOne({ where: { referenceNumber: referenceNumber } });
 
-  if(!foundReferenceNumber){
+  if (!foundReferenceNumber) {
     return res.status(403).send({
-      msg: "Invalid reference number"
-    })
+      msg: "Invalid reference number",
+    });
   }
 
   // req.studentId = foundReferenceNumber.id
 
-  next()
-
-}
-
+  next();
+};

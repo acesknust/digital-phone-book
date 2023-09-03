@@ -38,7 +38,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     if (data?.data) {
       dispatch({ type: AuthActionType.credentials, payload: { ...data.data, token: state.credentials?.token } })
     }
-  }, [data?.data])
+  }, [data?.data, state.credentials?.token])
 
 
   return (
