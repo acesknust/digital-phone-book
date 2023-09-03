@@ -1,19 +1,19 @@
-import { Entity, Column, ObjectIdColumn, ObjectId, CreateDateColumn } from 'typeorm';
+import { Entity, Column, ObjectIdColumn, ObjectId, CreateDateColumn } from "typeorm";
 
 @Entity()
 export class Admin {
     @ObjectIdColumn()
-    id!: ObjectId
+      id!: ObjectId
 
     @Column({ type: "text" })
-    username!: string
+      username!: string
 
     @Column({ type: "text" })
-    password!: string
+      password!: string
 
-    @Column('boolean', { default: true })
-    isActive: boolean = true
+    @Column("boolean", { default: true })
+      isActive: boolean = true
 
     @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
-    created_at!: Date;
+      created_at!: Date;
 }

@@ -1,31 +1,31 @@
-import { Entity, Column, ObjectIdColumn, ObjectId, CreateDateColumn } from 'typeorm';
+import { Entity, Column, ObjectIdColumn, ObjectId, CreateDateColumn } from "typeorm";
 
 @Entity()
 export class Student {
     @ObjectIdColumn()
-    id!: ObjectId
+      id!: ObjectId
 
     @Column({ type: "text" })
-    name!: string
+      name!: string
 
     @Column({ type: "text" })
-    nickname!: string
+      nickname!: string
 
     @Column({ type: "text" })
-    image!: string
+      image!: string
 
     @Column({ type: "text" })
-    referenceNumber!: string
+      referenceNumber!: string
 
     @Column({ type: "text" })
-    phoneNumber!: string
+      phoneNumber!: string
 
     @Column({ type: "text" })
-    quote!: string
+      quote!: string
 
     @Column({ type: "text" })
-    year!: string
+      year!: string
 
     @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
-    created_at!: Date;
+      created_at!: Date;
 }
