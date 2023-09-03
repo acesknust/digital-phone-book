@@ -1,5 +1,5 @@
 {
-	"name": "app",
+	"name": "uicore",
 	"version": "1.0.0",
 	"main": "index.js",
 	"author": "Kwameowusu <daarich470@gmail.com>",
@@ -27,6 +27,5 @@
 		"apps/*",
 		"packages/*"
 	],
-	"private": true,
-	"repository": "https://github.com/Kwameowusu/kioskcluster.git"
+	"private": true
 }

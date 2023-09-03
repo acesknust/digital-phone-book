@@ -1,6 +1,5 @@
 module.exports = {
   env: {
-    browser: true,
     es2021: true,
     node: true,
   },
@@ -14,7 +13,7 @@ module.exports = {
   },
   plugins: ["@typescript-eslint"],
   rules: {
-    indent: ["error", 2],
+    indent: ["warn", 2],
     "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],
     semi: ["off"],
@@ -26,12 +25,25 @@ module.exports = {
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/naming-convention": [
-      "error",
+      "warn",
       {
-        selector: "variableLike",
+        selector: "default",
         format: ["camelCase"],
+      },
+      {
+        selector: "variable",
+        format: ["camelCase", "UPPER_CASE"],
         leadingUnderscore: "allow",
-        trailingUnderscore: "allow",
+      },
+
+      {
+        selector: "typeLike",
+        format: ["PascalCase"],
+        leadingUnderscore: "allow",
+      },
+      {
+        selector: "enumMember",
+        format: ["camelCase", "UPPER_CASE"],
       },
     ],
   },

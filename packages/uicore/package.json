@@ -13,7 +13,7 @@
 		"./admin": [
 			"./src/entry/admin.ts",
 			"./src/entry/*"
-    ]
+		]
 	},
 	"version": "0.0.0",
 	"type": "module",
@@ -38,5 +38,7 @@
 		"browser-image-compression": "^2.0.2",
 		"clsx": "^1.2.1",
 		"react-router-dom": "^6.11.0"
-	}
+	},
+	"main": "index.js",
+	"license": "MIT"
 }
