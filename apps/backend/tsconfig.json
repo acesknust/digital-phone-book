@@ -6,7 +6,8 @@
         "noImplicitReturns": false,
         "allowSyntheticDefaultImports": true,
         "emitDecoratorMetadata": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
     },
     "include": [
         "src/**/*.ts",
