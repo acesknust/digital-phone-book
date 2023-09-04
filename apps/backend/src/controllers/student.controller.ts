@@ -50,7 +50,7 @@ export const getAllStudentDataInYear = async (req: Request, res: Response) => {
 export const updateStudentDataHavingTheReferenceNumber = async (req: Request, res: Response) => {
   try {
     const student = await dataSource.getRepository(Student).update(
-      { referenceNumber: req.params.referenceNumber },
+      { referenceNumber: req.body.referenceNumber },
       {
         name: req.body.name,
         nickname: req.body.nickname,

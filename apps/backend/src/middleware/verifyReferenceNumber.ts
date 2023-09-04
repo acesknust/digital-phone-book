@@ -30,3 +30,25 @@ export const verifyStudentReferenceNumber = async (req: Request, res: Response, 
 
   next();
 };
+
+export const verifyExistingReferenceNumber = async (req: Request, res: Response, next: NextFunction) => {
+  const referenceNumber = req.body.referenceNumber;
+
+  if (!referenceNumber) {
+    return res.status(403).send({
+      msg: "No reference number provided",
+    });
+  }
+
+  const foundReferenceNumber = await dataSource
+    .getRepository(Student)
+    .findOne({ where: { referenceNumber: referenceNumber } });
+
+  if (foundReferenceNumber) {
+    return res.status(403).send({
+      msg: "Reference number already exists",
+    });
+  }
+
+  next();
+}
