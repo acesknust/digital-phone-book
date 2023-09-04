@@ -3,7 +3,7 @@ import { dataSource } from "../dataSource";
 import { Student } from "../models/student.model";
 
 export const verifyStudentReferenceNumber = async (req: Request, res: Response, next: NextFunction) => {
-  const referenceNumber = req.params.referenceNumber;
+  const referenceNumber = req.body.referenceNumber;
 
   if (!referenceNumber) {
     return res.status(403).send({
