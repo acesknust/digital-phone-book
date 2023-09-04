@@ -44,7 +44,7 @@ export const signin = async (req: Request, res: Response) => {
 
     return res.status(200).send({
       token: token,
-      token_type: "x-access-token",
+      tokenType: "x-access-token",
       user: {
         username: admin.username,
       },

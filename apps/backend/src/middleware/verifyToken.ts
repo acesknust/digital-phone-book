@@ -1,7 +1,6 @@
 import { Response, Request, NextFunction } from "express";
 import { SECRET } from "../utils/constants";
 import jwt from "jsonwebtoken";
-import { ObjectId } from "typeorm";
 
 declare global {
   namespace Express {

@@ -2,21 +2,29 @@ import { Router } from "express";
 import * as controller from "../controllers/student.controller";
 import { verifyJWTToken } from "../middleware/verifyToken";
 import { verifyStudentReferenceNumber } from "../middleware/verifyReferenceNumber";
-import { validateCreateStudentSchema, validateStudentReferenceNumberPayloadSchema, validateUpdateStudentSchema, validateYearParameter } from "../middleware/validateStudentSchema";
+import {
+  validateCreateStudentSchema,
+  validateStudentReferenceNumberPayloadSchema,
+  validateUpdateStudentSchema,
+  validateYearParameter,
+} from "../middleware/validateStudentSchema";
 
 const router = Router();
 
-router.post("/student", verifyJWTToken,validateCreateStudentSchema, controller.createStudent);
+router.post("/student", verifyJWTToken, validateCreateStudentSchema, controller.createStudent);
 router.get("/student", controller.getAllStudentData);
-router.get("/student/:year",validateYearParameter ,controller.getAllStudentDataInYear);
+router.get("/student/:year", validateYearParameter, controller.getAllStudentDataInYear);
 router.patch(
   "/student",
-  verifyStudentReferenceNumber,validateUpdateStudentSchema,
+  verifyStudentReferenceNumber,
+  validateUpdateStudentSchema,
   controller.updateStudentDataHavingTheReferenceNumber
 );
 router.post(
   "/students/:year",
-  verifyJWTToken,validateYearParameter,validateStudentReferenceNumberPayloadSchema,
+  verifyJWTToken,
+  validateYearParameter,
+  validateStudentReferenceNumberPayloadSchema,
   controller.uplooadListOfStudentReferenceNumbersWithCorrespondingYear
 );
 

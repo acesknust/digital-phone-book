@@ -4,7 +4,7 @@ import { validateAdminLoginAndSignUpSchema } from "../middleware/validateAdminSc
 
 const router = Router();
 
-router.post("/signup",validateAdminLoginAndSignUpSchema, controller.signup);
-router.post("/signin",validateAdminLoginAndSignUpSchema, controller.signin);
+router.post("/signup", validateAdminLoginAndSignUpSchema, controller.signup);
+router.post("/signin", validateAdminLoginAndSignUpSchema, controller.signin);
 
 export default router;

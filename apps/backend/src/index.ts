@@ -2,7 +2,6 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import path from "path";
-require("dotenv").config();
 import { dataSource } from "./dataSource";
 import authRoutes from "./routes/auth.routes";
 import studentRoutes from "./routes/student.routes";

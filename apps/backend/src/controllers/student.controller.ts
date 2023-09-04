@@ -62,10 +62,6 @@ export const updateStudentDataHavingTheReferenceNumber = async (req: Request, re
       return res.status(400).send("Unable to process request");
     }
 
-    const updatedStudent = await dataSource
-      .getRepository(Student)
-      .findOne({ where: { referenceNumber: req.params.referenceNumber } });
-
     return res.status(201).send({
       msg: "Details taken successfully!",
     });
