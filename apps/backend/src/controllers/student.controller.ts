@@ -115,5 +115,5 @@ export const uplooadListOfStudentReferenceNumbersWithCorrespondingYear = async (
 };
 
 type StudentReferenceNumberPayload = {
-  "Reference Numbers": string[];
+  referenceNumbers: string[];
 };

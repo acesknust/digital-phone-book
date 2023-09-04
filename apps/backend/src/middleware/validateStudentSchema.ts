@@ -35,7 +35,7 @@ export const validateYearParameter = (req: any, res: any, next: any) => {
 };
 
 const studentReferenceNumberPayloadSchema = Joi.object({
-  "Reference Numbers": Joi.array()
+  referenceNumbers: Joi.array()
     .items(Joi.string().required()) // Validate that each item is a required string
     .required(), // Ensure the array itself is required
 });

@@ -2,14 +2,14 @@ import { Response, Request, NextFunction } from "express";
 import { SECRET } from "../utils/constants";
 import jwt from "jsonwebtoken";
 
-declare global {
-  namespace Express {
-    interface Request {
-      id?: string;
-      // studentId?: ObjectId ;
-    }
-  }
-}
+// declare global {
+//   namespace Express {
+//     interface Request {
+//       id?: string;
+//       // studentId?: ObjectId ;
+//     }
+//   }
+// }
 //TODO: think about checking if the user exists in the database first, in casae someone grabs the token and then tries to replicate it
 
 export const verifyJWTToken = (req: Request, res: Response, next: NextFunction) => {
@@ -21,7 +21,7 @@ export const verifyJWTToken = (req: Request, res: Response, next: NextFunction) 
     });
   }
 
-  jwt.verify(token, SECRET, (err: any, decoded: any) => {
+  jwt.verify(token, SECRET, (err: any) => {
     if (err) {
       if (err.name === "TokenExpiredError") {
         return res.status(401).send({
@@ -37,7 +37,7 @@ export const verifyJWTToken = (req: Request, res: Response, next: NextFunction) 
         });
       }
     }
-    req.id = decoded.id;
+    // req.id = decoded.id;
     next();
   });
 };
