@@ -1,7 +1,10 @@
 import { Router } from "express";
 import * as controller from "../controllers/student.controller";
 import { verifyJWTToken } from "../middleware/verifyToken";
-import { verifyExistingReferenceNumber, verifyStudentReferenceNumber } from "../middleware/verifyReferenceNumber";
+import {
+  verifyExistingReferenceNumber,
+  verifyStudentReferenceNumber,
+} from "../middleware/verifyReferenceNumber";
 import {
   validateCreateStudentSchema,
   validateStudentReferenceNumberPayloadSchema,
@@ -11,7 +14,13 @@ import {
 
 const router = Router();
 
-router.post("/student", verifyJWTToken, verifyExistingReferenceNumber,validateCreateStudentSchema, controller.createStudent);
+router.post(
+  "/student",
+  verifyJWTToken,
+  verifyExistingReferenceNumber,
+  validateCreateStudentSchema,
+  controller.createStudent
+);
 router.get("/student", controller.getAllStudentData);
 router.get("/student/:year", validateYearParameter, controller.getAllStudentDataInYear);
 router.patch(
