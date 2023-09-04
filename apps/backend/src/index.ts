@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import express, { Request, Response } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
@@ -6,10 +8,14 @@ import { dataSource } from "./dataSource";
 import authRoutes from "./routes/auth.routes";
 import studentRoutes from "./routes/student.routes";
 
+
+
 dataSource
   .initialize()
   .then(() => {
     console.log("[+] Data Source initialized.");
+    // console.log(process.env.DB_URL);
+    
   })
   .catch((error) => {
     console.error("Error during Data Source initialization:\n", error);
