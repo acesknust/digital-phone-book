@@ -17,7 +17,7 @@ export const verifyJWTToken = (req: Request, res: Response, next: NextFunction) 
 
   if (!token) {
     return res.status(403).send({
-      message: "Authorization Failed. No access token",
+      msg: "Authorization Failed. No access token",
     });
   }
 
@@ -25,15 +25,15 @@ export const verifyJWTToken = (req: Request, res: Response, next: NextFunction) 
     if (err) {
       if (err.name === "TokenExpiredError") {
         return res.status(401).send({
-          message: "Token expired!",
+          msg: "Token expired!",
         });
       } else if (err.name === "JsonWebTokenError") {
         return res.status(401).send({
-          message: "Invalid token!",
+          msg: "Invalid token!",
         });
       } else {
         return res.status(401).send({
-          message: "Unauthorized!",
+          msg: "Unauthorized!",
         });
       }
     }

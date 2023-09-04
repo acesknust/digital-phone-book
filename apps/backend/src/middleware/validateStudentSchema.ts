@@ -7,7 +7,7 @@ const createStudentSchema = Joi.object({
 
 export const validateCreateStudentSchema = (req: any, res: any, next: any) => {
   const { error } = createStudentSchema.validate(req.body);
-  if (error) return res.status(400).json({ error: "Invalid payload in the request body" });
+  if (error) return res.status(400).json({ msg: "Invalid payload in the request body" });
   next();
 };
 
@@ -21,7 +21,7 @@ const updateStudentSchema = Joi.object({
 
 export const validateUpdateStudentSchema = (req: any, res: any, next: any) => {
   const { error } = updateStudentSchema.validate(req.body);
-  if (error) return res.status(400).json({ error: "Invalid payload in the request body" });
+  if (error) return res.status(400).json({ msg: "Invalid payload in the request body" });
   next();
 };
 
@@ -30,7 +30,7 @@ const yearParamSchema = Joi.number().integer().min(2022).required();
 
 export const validateYearParameter = (req: any, res: any, next: any) => {
   const { error } = yearParamSchema.validate(req.params.year);
-  if (error) return res.status(400).json({ error: "Invalid payload in the request parameters" });
+  if (error) return res.status(400).json({ msg: "Invalid payload in the request parameters" });
   next();
 };
 
@@ -42,6 +42,6 @@ const studentReferenceNumberPayloadSchema = Joi.object({
 
 export const validateStudentReferenceNumberPayloadSchema = (req: any, res: any, next: any) => {
   const { error } = studentReferenceNumberPayloadSchema.validate(req.body);
-  if (error) return res.status(400).json({ error: "Invalid payload in the request body" });
+  if (error) return res.status(400).json({ msg: "Invalid payload in the request body" });
   next();
 };

@@ -83,7 +83,7 @@ export const uplooadListOfStudentReferenceNumbersWithCorrespondingYear = async (
     const alredyAddedReferenceNumbers: string[] = [];
     const unaddedReferenceNumbers: string[] = [];
 
-    for (const referenceNumber of payload["Reference Numbers"]) {
+    for (const referenceNumber of payload["referenceNumbers"]) {
       const studentExists = await dataSource
         .getRepository(Student)
         .findOne({ where: { referenceNumber: referenceNumber } });
