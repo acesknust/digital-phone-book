@@ -18,6 +18,7 @@ export const signup = async (req: Request, res: Response) => {
 
     return res.status(201).send({
       msg: "Signed up successfully!",
+      username: admin.username,
     });
   } catch (error) {
     return res.status(500).send(error);
@@ -44,7 +45,7 @@ export const signin = async (req: Request, res: Response) => {
 
     return res.status(200).send({
       token: token,
-      token_type: "x-access-token",
+      tokenType: "x-access-token",
       user: {
         username: admin.username,
       },

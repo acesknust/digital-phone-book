@@ -27,5 +27,5 @@ export class Student {
   year!: string;
 
   @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
-  created_at!: Date;
+  createdAt!: Date;
 }

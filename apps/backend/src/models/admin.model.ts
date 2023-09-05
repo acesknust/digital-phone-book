@@ -15,5 +15,5 @@ export class Admin {
   isActive: boolean = true;
 
   @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
-  created_at!: Date;
+  createdAt!: Date;
 }

@@ -50,7 +50,7 @@ export const getAllStudentDataInYear = async (req: Request, res: Response) => {
 export const updateStudentDataHavingTheReferenceNumber = async (req: Request, res: Response) => {
   try {
     const student = await dataSource.getRepository(Student).update(
-      { referenceNumber: req.params.referenceNumber },
+      { referenceNumber: req.body.referenceNumber },
       {
         name: req.body.name,
         nickname: req.body.nickname,
@@ -61,10 +61,6 @@ export const updateStudentDataHavingTheReferenceNumber = async (req: Request, re
     if (student.affected === 0) {
       return res.status(400).send("Unable to process request");
     }
-
-    const updatedStudent = await dataSource
-      .getRepository(Student)
-      .findOne({ where: { referenceNumber: req.params.referenceNumber } });
 
     return res.status(201).send({
       msg: "Details taken successfully!",
@@ -87,7 +83,7 @@ export const uplooadListOfStudentReferenceNumbersWithCorrespondingYear = async (
     const alredyAddedReferenceNumbers: string[] = [];
     const unaddedReferenceNumbers: string[] = [];
 
-    for (const referenceNumber of payload["Reference Numbers"]) {
+    for (const referenceNumber of payload["referenceNumbers"]) {
       const studentExists = await dataSource
         .getRepository(Student)
         .findOne({ where: { referenceNumber: referenceNumber } });
@@ -119,5 +115,5 @@ export const uplooadListOfStudentReferenceNumbersWithCorrespondingYear = async (
 };
 
 type StudentReferenceNumberPayload = {
-  "Reference Numbers": string[];
+  referenceNumbers: string[];
 };
