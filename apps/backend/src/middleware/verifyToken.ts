@@ -21,7 +21,7 @@ export const verifyJWTToken = (req: Request, res: Response, next: NextFunction) 
     });
   }
 
-  jwt.verify(token, SECRET, (err: any) => {
+  jwt.verify(token, SECRET, (err: any, decoded: any) => {
     if (err) {
       if (err.name === "TokenExpiredError") {
         return res.status(401).send({
@@ -37,7 +37,10 @@ export const verifyJWTToken = (req: Request, res: Response, next: NextFunction) 
         });
       }
     }
-    // req.id = decoded.id;
+    //attach the decoded id to the request for the next handler
+    (req as unknown as { userId: string }).userId = (
+      decoded as { id: string }
+    ).id;
     next();
   });
 };
