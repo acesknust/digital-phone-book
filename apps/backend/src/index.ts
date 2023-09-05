@@ -7,6 +7,7 @@ import path from "path";
 import { dataSource } from "./dataSource";
 import authRoutes from "./routes/auth.routes";
 import studentRoutes from "./routes/student.routes";
+import reportRoutes from "./routes/report.routes"
 
 dataSource
   .initialize()
@@ -26,6 +27,7 @@ app.use(express.static(path.resolve(__dirname, "src/public")));
 
 app.use(authRoutes);
 app.use(studentRoutes);
+app.use('/report', reportRoutes)
 
 app.get("/", (req: Request, res: Response) => {
   res.send({
