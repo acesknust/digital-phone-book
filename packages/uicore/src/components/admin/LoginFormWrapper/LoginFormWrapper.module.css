@@ -1,0 +1,43 @@
+.root {
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.logoHeading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  font-size: calc(var(--digi-font-size-20) * 2.8);
+}
+
+.logoWord {
+  font-size: calc(var(--digi-font-size-20) * 9);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading {
+  font-size: var(--digi-font-size-16);
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--digi-dark-text-color3);
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .root {
+    width: 100%;
+  }
+
+}

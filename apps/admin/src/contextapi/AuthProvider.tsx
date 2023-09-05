@@ -28,10 +28,11 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
       "Content-Type": "application/json",
     },
   }
-  const { data } = useQuery('getCurrentUser', state.credentials?.token ? () =>
-    fetch(`${import.meta.env.VITE_API_URL}/admin`, config).then(res =>
-      res.json()
-    ) : () => null
+  const { data } = useQuery('getCurrentUser',
+    state.credentials?.token ? () =>
+      fetch(`${import.meta.env.VITE_API_URL}/admin`, config).then(res =>
+        res.json()
+      ) : () => null
   )
 
   useEffect(() => {
