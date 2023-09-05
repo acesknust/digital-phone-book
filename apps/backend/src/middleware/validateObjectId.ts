@@ -9,7 +9,7 @@ const obejctIdSchema = Joi.string().custom((value, helpers) => {
     return value;
 }, 'ObjectID');
 
-export const validateReport = async (req: Request, res: Response, next: Function) => {
+export const validateObjectId = async (req: Request, res: Response, next: Function) => {
     const schema = Joi.object({
         id: obejctIdSchema.required(),
     });
