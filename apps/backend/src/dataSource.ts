@@ -3,10 +3,6 @@ import path from "path";
 
 export const dataSource = new DataSource({
   type: "mongodb",
-
-  // host: process.env.DB_HOST,
-  // username: process.env.DB_USER,
-  // password: process.env.DB_PASSWORD,
   url: process.env.DB_URL,
   useUnifiedTopology: true,
   useNewUrlParser: true,

@@ -9,5 +9,3 @@
 ## Connect to the backend mongodb
 1. Install mongo shell on the target computer.
 2. Run ```mongosh <DB_URL>``` in the terminal.
-
-## test
