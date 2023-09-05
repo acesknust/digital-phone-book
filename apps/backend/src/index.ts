@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, "src/public")));
 
 app.use(authRoutes);
-app.use(studentRoutes);
+app.use('/student', studentRoutes);
 app.use('/report', reportRoutes)
 
 app.get("/", (req: Request, res: Response) => {

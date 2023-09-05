@@ -21,16 +21,16 @@ router.post(
   validateCreateStudentSchema,
   controller.createStudent
 );
-router.get("/student", controller.getAllStudentData);
-router.get("/student/:year", validateYearParameter, controller.getAllStudentDataInYear);
+router.get("/", controller.getAllStudentData);
+router.get("/:year", validateYearParameter, controller.getAllStudentDataInYear);
 router.patch(
-  "/student",
+  "/",
   verifyStudentReferenceNumber,
   validateUpdateStudentSchema,
   controller.updateStudentDataHavingTheReferenceNumber
 );
 router.post(
-  "/students/:year",
+  "/:year",
   verifyJWTToken,
   validateYearParameter,
   validateStudentReferenceNumberPayloadSchema,
