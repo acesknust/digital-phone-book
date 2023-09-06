@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { dataSource } from "../dataSource";
 import { Report } from "../models/report.model"
+import { ObjectId } from "mongodb";
 
 export const createReport = async (req: Request, res: Response) => {
     const report = await dataSource.getRepository(Report).create({
@@ -21,10 +22,12 @@ export const createReport = async (req: Request, res: Response) => {
 }
 
 export const getReports = async (req: Request, res: Response) => {
-    let condition = {}
+    let condition = { where: {} }
 
-    if (!req.params.id) {
-        condition = { where: { id: req.params.id } }
+    if (req.params.id) {
+        condition = {
+            where: { id: req.params.id }
+        }
     }
 
     const reports = await dataSource.getRepository(Report).find(condition)
@@ -32,7 +35,11 @@ export const getReports = async (req: Request, res: Response) => {
     return res.status(200).send(reports)
 }
 
-
 export const closeReport = async (req: Request, res: Response) => {
-    
+    const report = await dataSource.getRepository(Report).update(
+        { id: new ObjectId(req.params.id) },
+        { isActive: true, }
+    )
+
+    return res.status(200).send(report)
 }
