@@ -3,7 +3,7 @@ import { Entity, Column, ObjectIdColumn, ObjectId, CreateDateColumn } from "type
 @Entity()
 export class Admin {
   @ObjectIdColumn()
-  id!: ObjectId;
+  _id!: ObjectId;
 
   @Column({ type: "text" })
   username!: string;
