@@ -10,7 +10,7 @@ import jwt from "jsonwebtoken";
 //     }
 //   }
 // }
-//TODO: think about checking if the user exists in the database first, in casae someone grabs the token and then tries to replicate it
+ //TODO: think about checking if the user exists in the database first, in casae someone grabs the token and then tries to replicate it
 
 export const verifyJWTToken = (req: Request, res: Response, next: NextFunction) => {
   const token = req.headers["x-access-token"] as string;

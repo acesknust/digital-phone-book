@@ -1,6 +1,12 @@
 import { Response, Request } from "express";
 import { dataSource } from "../dataSource";
 import { Student } from "../models/student.model";
+import { ObjectId } from "mongodb";
+
+type StudentReferenceNumberPayload = {
+  referenceNumbers: string[];
+};
+
 
 export const createStudent = async (req: Request, res: Response) => {
   try {
@@ -122,6 +128,22 @@ export const uplooadListOfStudentReferenceNumbersWithCorrespondingYear = async (
   }
 };
 
-type StudentReferenceNumberPayload = {
-  referenceNumbers: string[];
-};
+export const updateStudentDataByAdmin = async(req: Request, res: Response) => {
+  const repository = dataSource.getRepository(Student);
+  try {
+    const existingRepository = await repository.findOne({ where: { _id: new ObjectId(req.params.id) } });
+    if (!existingRepository) {
+      return res.status(404).send({ msg: "Student does not exist." });
+    }
+
+    repository.merge(existingRepository, req.body);
+    const updatedRepository = await repository.save(existingRepository);
+    
+    res.status(200).send({ msg: "Field updated." });
+
+  } catch (error) {
+    return res.status(500).send({
+      msg: error,
+    });
+  }
+}

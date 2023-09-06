@@ -9,8 +9,10 @@ import {
   validateCreateStudentSchema,
   validateStudentReferenceNumberPayloadSchema,
   validateUpdateStudentSchema,
+  validateUpdateStudentSchemaByAdmin,
   validateYearParameter,
 } from "../middleware/validateStudentSchema";
+import { validateObjectId } from "../middleware/validateObjectId";
 
 const router = Router();
 
@@ -38,5 +40,6 @@ router.post(
   validateStudentReferenceNumberPayloadSchema,
   controller.uplooadListOfStudentReferenceNumbersWithCorrespondingYear
 );
+router.patch('/admin/:id',verifyJWTToken,validateObjectId,validateUpdateStudentSchemaByAdmin,controller.updateStudentDataByAdmin)
 
 export default router;
