@@ -22,6 +22,14 @@ export const createStudent = async (req: Request, res: Response) => {
   }
 };
 
+export const deleteStudentRecord = async (req: Request, res: Response) => {
+  const studentRecord = await dataSource.getRepository(Student).delete({
+    referenceNumber: req.body.referenceNumber
+  })
+
+  return res.status(204).send({ msg: "Student record deleted succcesfully." })
+}
+
 export const getAllStudentData = async (req: Request, res: Response) => {
   try {
     const student = await dataSource.getRepository(Student).find();

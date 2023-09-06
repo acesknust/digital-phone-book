@@ -15,12 +15,14 @@ import {
 const router = Router();
 
 router.post(
-  "/student",
+  "/",
   verifyJWTToken,
   verifyExistingReferenceNumber,
   validateCreateStudentSchema,
   controller.createStudent
 );
+
+router.delete("/", [verifyJWTToken, verifyStudentReferenceNumber], controller.deleteStudentRecord)
 router.get("/", controller.getAllStudentData);
 router.get("/:year", validateYearParameter, controller.getAllStudentDataInYear);
 router.patch(
