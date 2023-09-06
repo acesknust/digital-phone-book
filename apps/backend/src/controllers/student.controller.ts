@@ -67,7 +67,7 @@ export const updateStudentDataHavingTheReferenceNumber = async (req: Request, re
       }
     );
     if (student.affected === 0) {
-      return res.status(400).send("Unable to process request");
+      return res.status(400).send({msg:"Details have already been taken"});
     }
 
     return res.status(201).send({
