@@ -39,7 +39,7 @@ export const signin = async (req: Request, res: Response) => {
 
     if (!passwordIsValid) return res.status(404).send("Invalid credentials");
 
-    const token = jwt.sign({ id: admin.id }, SECRET, {
+    const token = jwt.sign({ id: admin._id }, SECRET, {
       expiresIn: 5184000,
     });
 
