@@ -4,16 +4,16 @@ import { Report } from "../models/report.model";
 import { ObjectId } from "mongodb";
 
 export const validateReport = async (req: Request, res: Response, next: Function) => {
-    const validReports = await dataSource.getRepository(Report).findOne({
-        where: { id: new ObjectId(req.params.id) }
+    const validReport = await dataSource.getRepository(Report).findOne({
+        where: { _id: new ObjectId(req.params.id) }
     })
 
-    if (!validReports) {
+    if (!validReport) {
         return res.status(404).send({ msg: "Report does not exist." })
 
     }
 
-    if (!validReports.isActive) { return res.send(400).send({ msg: "Report has been closed" }) }
+    if (!validReport.isActive) { return res.status(400).send({ msg: "Report has been closed" }) }
 
     next()
 }

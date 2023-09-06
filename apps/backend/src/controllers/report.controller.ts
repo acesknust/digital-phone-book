@@ -26,7 +26,7 @@ export const getReports = async (req: Request, res: Response) => {
 
     if (req.params.id) {
         condition = {
-            where: { id: req.params.id }
+            where: { _id: new ObjectId(req.params.id) }
         }
     }
 
@@ -37,9 +37,9 @@ export const getReports = async (req: Request, res: Response) => {
 
 export const closeReport = async (req: Request, res: Response) => {
     const report = await dataSource.getRepository(Report).update(
-        { id: new ObjectId(req.params.id) },
-        { isActive: true, }
+        { _id: new ObjectId(req.params.id) },
+        { isActive: false, }
     )
 
-    return res.status(200).send(report)
+    return res.status(200).send({ msg: "Report has been successfully closed." })
 }
