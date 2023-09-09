@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "lint": "eslint . --cache --fix",
+    "pretest": "npm run lint"
+  }
+}

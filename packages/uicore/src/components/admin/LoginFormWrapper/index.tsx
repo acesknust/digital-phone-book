@@ -1,9 +1,9 @@
 
-import React from 'react'
-import styles from './LoginFormWrapper.module.css'
+import React from "react"
+import styles from "./LoginFormWrapper.module.css"
 
 
-import { LoginForm } from '../LoginForm'
+import { LoginForm } from "../LoginForm"
 
 export interface LoginFormWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   isLoading: boolean
