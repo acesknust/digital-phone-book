@@ -13,6 +13,7 @@ import {
 	validateYearParameter,
 } from "../middleware/validateStudentSchema";
 import { validateObjectId } from "../middleware/validateObjectId";
+import { studentRecordAndReportLimiter } from "../middleware/rateLimit";
 
 const router = Router();
 
@@ -31,6 +32,7 @@ router.patch(
 	"/",
 	verifyStudentReferenceNumber,
 	validateUpdateStudentSchema,
+	studentRecordAndReportLimiter,
 	controller.updateStudentDataHavingTheReferenceNumber
 );
 router.post(

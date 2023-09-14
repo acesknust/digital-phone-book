@@ -4,10 +4,11 @@ import { verifyStudentReferenceNumber } from "../middleware/verifyReferenceNumbe
 import { verifyJWTToken } from "../middleware/verifyToken";
 import { validateObjectId } from "../middleware/validateObjectId";
 import { validateReport } from "../middleware/validateReport";
+import { studentRecordAndReportLimiter } from "../middleware/rateLimit";
 
 const router = Router();
 
-router.post("/", verifyStudentReferenceNumber, controller.createReport);
+router.post("/", [verifyStudentReferenceNumber, studentRecordAndReportLimiter], controller.createReport);
 
 // only admins can see reports
 router.get("/", verifyJWTToken, controller.getReports);
