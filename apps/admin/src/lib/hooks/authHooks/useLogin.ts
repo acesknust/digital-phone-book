@@ -11,10 +11,11 @@ export const useLogin = () => {
 
   const { authDispatch, authState } = useAuthProvider();
   useEffect(() => {
-    if (authState.credentials?.token) {
-      navigate("/");
-    }
-  }, [navigate]);
+		if (authState.credentials?.token) {
+			navigate("/");
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [navigate]);
   const submitData = async (e: { preventDefault: () => void }) => {
     try {
       e.preventDefault();

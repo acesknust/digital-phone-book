@@ -91,7 +91,7 @@ export type AuthPayload = {
  * ...
  * }
  */
-type ActionMap<M extends { [index: string]: any }> = {
+type ActionMap<M> = {
 	[Key in keyof M]: {
 		type: Key;
 		payload: M[Key];

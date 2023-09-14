@@ -2,18 +2,18 @@ import { Entity, Column, ObjectIdColumn, ObjectId, CreateDateColumn } from "type
 
 @Entity()
 export class Admin {
-  @ObjectIdColumn()
-  _id!: ObjectId;
+	@ObjectIdColumn()
+	_id!: ObjectId;
 
-  @Column({ type: "text" })
-  username!: string;
+	@Column({ type: "text" })
+	username!: string;
 
-  @Column({ type: "text" })
-  password!: string;
+	@Column({ type: "text" })
+	password!: string;
 
-  @Column("boolean", { default: true })
-  isActive: boolean = true;
+	@Column("boolean", { default: true })
+	isActive: boolean = true;
 
-  @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
-  createdAt!: Date;
+	@CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
+	createdAt!: Date;
 }

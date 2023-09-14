@@ -3,11 +3,32 @@
   "tabWidth": 2,
   "singleQuote": false,
   "printWidth": 110,
-  "useTabs": false,
+  "useTabs": true,
   "importOrderSortIndividualImports": true,
   "importOrderTypeImportsToTop": false,
   "importOrderNamespaceImportsToGroupTop": true,
   "importOrderBuiltinModulesToTop": true,
   "importOrderMergeDuplicateImports": true,
-  "importOrderParserPlugins": ["typescript", "decorators-legacy"]
+  "importOrderParserPlugins": [
+    "typescript",
+    "decorators-legacy"
+  ],
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "printWidth": 70,
+        "useTabs": false,
+        "trailingComma": "none",
+        "arrowParens": "avoid",
+        "proseWrap": "never"
+      }
+    },
+    {
+      "files": "*.{json,babelrc,eslintrc,remarkrc,prettierrc}",
+      "options": {
+        "useTabs": false
+      }
+    }
+  ]
 }

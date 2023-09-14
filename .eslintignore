@@ -1,5 +1,5 @@
 .yarn
 dist
-node_modules
 *.json
 *.html
+node_modules/

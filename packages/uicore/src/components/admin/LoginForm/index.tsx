@@ -1,7 +1,7 @@
-import React from 'react'
-import styles from './LoginForm.module.css'
-import { Input } from '../../shared/Input'
-import { Button } from '../../shared/Button'
+import React from "react"
+import styles from "./LoginForm.module.css"
+import { Input } from "../../shared/Input"
+import { Button } from "../../shared/Button"
 
 
 export interface LoginFormProps extends React.HTMLAttributes<HTMLDivElement> {
