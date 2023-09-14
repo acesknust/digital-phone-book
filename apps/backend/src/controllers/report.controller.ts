@@ -35,6 +35,10 @@ export const getReports = async (req: Request, res: Response) => {
     return res.status(200).send(reports)
 }
 
+// export const getActiveReports =async (params:type) => {
+
+// }
+
 export const closeReport = async (req: Request, res: Response) => {
     const report = await dataSource.getRepository(Report).update(
         { _id: new ObjectId(req.params.id) },
