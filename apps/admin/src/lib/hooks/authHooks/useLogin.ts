@@ -15,7 +15,8 @@ export const useLogin = () => {
 			navigate("/");
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [navigate]);
+  }, [navigate]);
+  
   const submitData = async (e: { preventDefault: () => void }) => {
     try {
       e.preventDefault();

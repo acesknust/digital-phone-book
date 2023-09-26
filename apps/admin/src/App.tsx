@@ -6,6 +6,7 @@ import Overview from './pages/Overview';
 import Settings from './pages/Settings';
 import UpdateProfile from './pages/UpdateProfile';
 import Login from './pages/Login';
+import { ClassDetailsTable } from 'uicore/admin';
 
 
 
@@ -20,7 +21,9 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route element={<ProtectedRoute />}>
-                <Route path="/" element={< Overview />} />
+                <Route path="/" element={< Overview />} >
+                  <Route path="/:classId" element={< ClassDetailsTable />} />
+                </Route>
                 <Route path="settings" element={<Settings />} >
                   <Route path="" element={<UpdateProfile />} />
                 </Route>

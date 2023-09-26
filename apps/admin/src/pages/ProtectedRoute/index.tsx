@@ -9,7 +9,7 @@ const ProtectedRoute = () => {
 
   const location = useLocation();
 
-  if (authState.credentials?.token || !authState.credentials === null) {
+  if (!authState.credentials?.token || authState.credentials === null) {
     return <Navigate replace to="/login" state={{ from: location }} />;
   }
   return (
